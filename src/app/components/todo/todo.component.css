@@ -1,0 +1,268 @@
+/* Estilos globales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 750px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 30px;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.container-2 {
+  width: auto;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 30px;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Formulario de nueva tarea */
+input, select {
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Filtro y búsqueda */
+div.filtros {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+div.busqueda-filtro{
+  width: 100%;
+}
+
+select {
+  width: 35%;
+}
+
+button.filtrar {
+  background-color: #28a745;
+  border-radius: 5px;
+  padding: 12px;
+  border: none;
+  color: white;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button.filtrar:hover {
+  background-color: #218838;
+}
+
+/* Estilo para la lista de tareas */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+  width: 100%; /* Aseguramos que la lista ocupe todo el ancho disponible */
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 100%; /* Asegura que el item de la lista ocupe todo el ancho disponible */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+}
+
+
+li:hover {
+  background-color: #e9ecef;
+}
+
+/* Ajustar la posición de cada elemento dentro del li */
+/* Estilo para el checkbox cuando no está marcado */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #214888;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
+li .texto {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 20px;
+  flex-grow: 2; /* Esto hace que el texto ocupe el mayor espacio posible */
+  word-wrap: break-word; /* Permite que las palabras largas se ajusten al contenedor */
+  font-size: 1.5rem;
+}
+
+li .prioridad {
+  flex-shrink: 0; /* No permite que el span de prioridad se achique */
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  text-transform: capitalize; /* Asegura que la palabra 'Baja', 'Media', etc., tenga la primera letra en mayúscula */
+  min-width: 70px; /* Establece un tamaño mínimo para la etiqueta de prioridad */
+  text-align: center;
+}
+
+li .prioridad.Baja {
+  background-color: #28a745;
+  color: white;
+}
+
+li .prioridad.Media {
+  background-color: #ffc107;
+  color: white;
+}
+
+li .prioridad.Alta {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Estilo para la fecha */
+li .fecha {
+  width: 15%;
+  font-size: 0.9rem;
+  color: #6c757d;
+  min-width: 100px; /* Establece un ancho mínimo para la fecha */
+  text-align: center;
+}
+
+/* Estilo para los botones */
+li button {
+  width: 15%;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s;
+}
+
+li button:hover {
+  background-color: #0056b3;
+}
+
+li button:focus {
+  outline: none;
+}
+
+/* Tareas vencidas */
+.vencida {
+  text-decoration: line-through;
+  color: #ff6f61;
+  font-weight: bold;
+}
+
+/* Estilos para las tareas completadas */
+input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Botones adicionales */
+button.eliminar, button.editar {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
+
+button.eliminar:hover, button.editar:hover {
+  background-color: #c82333;
+}
+
+button.eliminar:focus, button.editar:focus {
+  outline: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  input[type="text"], select, button {
+    width: 100%;
+  }
+
+  div.filtros {
+    flex-direction: column;
+  }
+
+  button.filtrar {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}
