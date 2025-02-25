@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Lista de Tareas</h2>
+
+    <!-- Formulario para agregar o editar tarea -->
+    <div class="formulario-tarea">
+        <input [(ngModel)]="nuevaTarea" placeholder="Nueva tarea" />
+        <select [(ngModel)]="prioridad">
+            <option value="Baja">Baja</option>
+            <option value="Media">Media</option>
+            <option value="Alta">Alta</option>
+        </select>
+        <button (click)="agregarTarea()">
+            {{ tareaEditadaIndex === null ? 'Agregar' : 'Guardar cambios' }}
+        </button>
+    </div>
+
+    <!-- Filtro y búsqueda -->
+    <div class="filtros">
+        <div class="busqueda-filtro">
+            <input [(ngModel)]="busqueda" class="busqueda" placeholder="Buscar tarea" />
+            <select [(ngModel)]="filtro">
+                <option value="todas">Todas</option>
+                <option value="completadas">Completadas</option>
+                <option value="pendientes">Pendientes</option>
+            </select>
+        </div>
+    </div>
+<!--prueba-->
+    <!-- Botones adicionales -->
+    <div class="botones-adicionales">
+        <button (click)="marcarTodasCompletadas()">Marcar todas como completadas</button>
+        <button (click)="limpiarTareas()">Limpiar todas las tareas</button>
+    </div>
+
+</div>
+
+<div class="container-2" *ngIf="tareas.length > 0">
+    <!-- Lista de tareas -->
+    <ul>
+        <li *ngFor="let tarea of filtrarTareas(); let i = index">
+            <input type="checkbox" [checked]="tarea.completada" (change)="toggleTarea(i)" />
+            <span [class.vencida]="tarea.vencida" class="texto">{{ tarea.texto }}</span>
+            <span class="prioridad" [ngClass]="tarea.prioridad">{{ tarea.prioridad }}</span>
+            <span class="fecha">{{ tarea.fechaCreacion | date:'short' }}</span> <!-- Fecha de creación -->
+            <button (click)="editarTarea(i)">Editar</button>
+            <button (click)="eliminarTarea(i)">Eliminar</button>
+        </li>
+    </ul>
+</div>
